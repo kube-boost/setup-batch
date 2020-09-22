@@ -1,0 +1,67 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: setupjobs.kube-boost.github.com
+spec:
+  group: kube-boost.github.com
+  names:
+    kind: SetupJob
+    plural: setupjobs
+    singular: setupjob
+    shortNames:
+    - sj
+  scope: Namespaced
+  versions: 
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            description: |
+              The desired behaviour of this SetupJob.
+            required:
+            - template
+            properties:
+              activeDeadlineSeconds:
+                type: integer
+                minimum: 0
+                description: |
+                  Specifies the duration in seconds relative to the startTime 
+                  that the job may be active before the system tries to 
+                  terminate it; value must be positive integer
+              selector:
+                type: object
+                description: |
+	              A label query over pods that should match the pod count.
+	              Normally, the system sets this field for you.
+              backoffLimit:
+                type: integer
+                minimum: 0
+                description: |
+                  Specifies the number of retries before marking this job 
+                  failed. Defaults to 6
+              ttlSecondsAfterFinished:
+                type: integer
+                description: |
+                  ttlSecondsAfterFinished limits the lifetime of a SetupJob 
+                  that has finished execution (either Complete or Failed). 
+                  If this field is set, ttlSecondsAfterFinished after the 
+                  SetupJob finishes, it is eligible to be automatically 
+                  deleted. When the SetupJob is being deleted, its lifecycle 
+                  guarantees (e.g. finalizers) will be honored. If this field is
+                  unset, the SetupJob won't be automatically deleted. If this 
+                  field is set to zero, the Job becomes eligible to be deleted 
+                  immediately after it finishes.
+              template:
+                type: object
+                description: |
+                  An object that describes the pod that will be created.  The 
+                  SetupJob will create exactly one copy of this pod on 
+                  every node that matches the template's node selector 
+                  (or on every node if no node selector is specified). 
+                x-kubernetes-embedded-resource: true
+                x-kubernetes-preserve-unknown-fields: true

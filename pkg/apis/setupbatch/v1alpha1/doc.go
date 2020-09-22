@@ -18,4 +18,4 @@ limitations under the License.
 // +groupName=kube-boost.github.com
 
 // Package v1alpha1 is the v1alpha1 version of the API.
-package v1alpha1 // import "github.com/kube-boost/setup-batch"
+package v1alpha1 // import "github.com/kube-boost/setup-batch/pkg/setupbatch/v1alpha1"

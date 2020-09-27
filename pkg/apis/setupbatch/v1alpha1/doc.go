@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 // +k8s:deepcopy-gen=package
-// +groupName=kube-boost.github.com
+// +groupName=kubeboost.github.com
 
 // Package v1alpha1 is the v1alpha1 version of the API.
-package v1alpha1 // import "github.com/kube-boost/setup-batch/pkg/setupbatch/v1alpha1"
+package v1alpha1 // import "github.com/kubeboost/setup-batch/pkg/setupbatch/v1alpha1"

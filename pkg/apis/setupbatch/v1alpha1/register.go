@@ -21,7 +21,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	setupbatch "github.com/kube-boost/setup-batch/pkg/setupbatch"
+	setupbatch "github.com/kubeboost/setup-batch/pkg/setupbatch"
 )
 
 // SchemeGroupVersion is group version used to register these objects

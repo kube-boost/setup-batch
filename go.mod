@@ -1,4 +1,4 @@
-module github.com/kube-boost/setup-batch
+module github.com/kubeboost/setup-batch
 
 go 1.15
 
